@@ -8,19 +8,11 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
-import CustomError from "./models/error";
-
+import CustomError from "../models/error";
+import corsOptions from './cors' ;
+import router from '../router/router.map';
 app.use(
-  cors({
-    origin: [
-      "http://auth.askforwork.in",
-      "http://askforwork.in",
-      "https://auth.askforwork.in",
-      "https://askforwork.in",
-    ],
-    optionsSuccessStatus: 200,
-    credentials: true,
-  })
+  cors(corsOptions)
 );
 
 app.use(logger("dev"));
@@ -30,9 +22,7 @@ app.use(cookieParser());
 
 //router
 
-app.get("/", (req, res) => {
-  res.send("____________");
-});
+app.use(router)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,6 +1,6 @@
 // import app from "./app";
 import http from "http";
-import app from "~/app"
+import app from "~/bin/app"
 
 /**
  * Module dependencies.
